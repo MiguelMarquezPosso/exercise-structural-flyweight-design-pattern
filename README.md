@@ -51,3 +51,12 @@ docker run --env-file .env -p 8080:8080 flyweight
 ## 🎮 Uso
 
 ## 🔐 Flujo de Ejecución
+1. Cliente solicita agregar canción a lista
+
+2. FabricaCanciones verifica si canción existe en cache
+
+3. SI existe: ♻️ Reutiliza objeto existente
+
+4. NO existe: 🆕 Crea nuevo objeto y almacena en cache
+
+5. Lista almacena referencia a canción compartida
