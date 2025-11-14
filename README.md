@@ -41,6 +41,36 @@ flyweight/
 ### 🔧 Variables de Entorno (.env)
 En el archivo .env reemplazar las credenciales por las generadas al crear una base de datos PostgreSQL de Supabase.
 
+## 🗄️ Configuración Base de Datos
+Ejecutar en SQL Editor de Supabase:
+```
+-- Limpiar tablas existentes si las hay
+DROP TABLE IF EXISTS lista_canciones CASCADE;
+DROP TABLE IF EXISTS listas_reproduccion CASCADE;
+DROP TABLE IF EXISTS canciones CASCADE;
+
+-- Tabla de canciones
+CREATE TABLE canciones (
+    id BIGSERIAL PRIMARY KEY,
+    nombre_cancion VARCHAR(255) UNIQUE NOT NULL,
+    cancion_data BYTEA
+);
+
+-- Tabla de listas de reproducción
+CREATE TABLE listas_reproduccion (
+    id BIGSERIAL PRIMARY KEY,
+    nombre_lista VARCHAR(255) NOT NULL,
+    contador_acceso INTEGER DEFAULT 0
+);
+
+-- Tabla de relación muchos-a-muchos
+CREATE TABLE lista_canciones (
+    lista_id BIGINT REFERENCES listas_reproduccion(id),
+    cancion_id BIGINT REFERENCES canciones(id),
+    PRIMARY KEY (lista_id, cancion_id)
+);
+```
+
 ## 🐳 Ejecución con Docker
 
 ```
