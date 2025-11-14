@@ -7,6 +7,14 @@ Implementación de un sistema de gestión de listas de reproducción musical que
 Demostrar la reutilización eficiente de objetos pesados (canciones de 1MB) across múltiples listas de reproducción, manteniendo en memoria solo las listas más utilizadas y almacenando el resto en base de datos.
 
 ## 🏗️ Patrones Implementados
+
+### 🔄 Patrón Flyweight
+**Fábrica**: FabricaCanciones (gestión de cache de canciones)
+
+**Objetos Flyweight**: Cancion (objetos pesados reutilizables)
+
+**Clientes**: ListaReproduccion (contexto que usa los flyweights)
+
 ```
 flyweight/
 ├── src/main/java/co/edu/javeriana/flyweight/
