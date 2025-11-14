@@ -50,6 +50,25 @@ docker run --env-file .env -p 8080:8080 flyweight
 
 ## 🎮 Uso
 
+**Crear Nueva Lista de Reproducción**:
+```
+// Obtener gestor del contexto Spring
+GestorListasService gestor = context.getBean(GestorListasService.class);
+
+// Crear lista con canciones específicas
+List<String> canciones = Arrays.asList("Song 1", "Song 5", "Song 3");
+ListaReproduccion lista = gestor.obtenerOActualizarLista("Mi Playlist", canciones);
+```
+
+**Consultar Listas Existentes**:
+```
+// Lista en memoria (rápido)
+ListaReproduccion listaMemoria = gestor.obtenerOActualizarLista("PlayList 1", canciones);
+
+// Lista desde BD (si no está en memoria)
+ListaReproduccion listaBD = gestor.obtenerOActualizarLista("PlayList 50", canciones);
+```
+
 ## 🔐 Flujo de Ejecución
 1. Cliente solicita agregar canción a lista
 
