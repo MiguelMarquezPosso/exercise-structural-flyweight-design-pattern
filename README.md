@@ -1,4 +1,4 @@
-# 🎵 Sistema de Listas de Reproducción con Patrón Flyweight
+# Sistema de Listas de Reproducción con Patrón Flyweight
 
 ## 📋 Descripción
 Implementación de un sistema de gestión de listas de reproducción musical que utiliza el patrón Flyweight para optimizar el uso de memoria, integrado con Supabase PostgreSQL para persistencia de datos.
