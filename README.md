@@ -1,15 +1,45 @@
-🎵 Sistema de Listas de Reproducción - Patrón Flyweight
-Una aplicación Spring Boot que demuestra el patrón de diseño Flyweight integrado con Supabase PostgreSQL para gestión eficiente de memoria en sistemas de listas de reproducción musical.
+# 🎵 Sistema de Listas de Reproducción con Patrón Flyweight
 
-🚀 Inicio Rápido
-Prerrequisitos
-Java 17
+## 📋 Descripción
+Implementación de un sistema de gestión de listas de reproducción musical que utiliza el patrón Flyweight para optimizar el uso de memoria, integrado con Supabase PostgreSQL para persistencia de datos.
 
-Maven 3.9+
+## 🎯 Objetivo
+Demostrar la reutilización eficiente de objetos pesados (canciones de 1MB) across múltiples listas de reproducción, manteniendo en memoria solo las listas más utilizadas y almacenando el resto en base de datos.
 
-Docker
+## 🏗️ Patrones Implementados
+```
+flyweight/
+├── src/main/java/co/edu/javeriana/flyweight/
+│ ├── model/
+│ │ ├── Cancion.java                           # Entidad Flyweight
+│ │ └── ListaReproduccion.java                 # Entidad lista reproducción
+│ ├── repository/
+│ │ ├── CancionRepository.java                 # Repository Spring Data
+│ │ └── ListaReproduccionRepository.java       # Repository Spring Data
+│ ├── service/
+│ │ └── GestorListasService.java               # Gestión memoria/BD
+│ ├── implementation/
+│ │ └── FabricaCanciones.java                  # Fábrica Flyweight
+│ └── FlyweightApplication.java                # Clase principal Spring Boot
+├── src/main/resources/
+│ └── application.properties                   # Configuración Spring
+├── pom.xml                                    # Dependencias Maven
+├── dockerfile                                 # Contenedor Docker
+└── .env                                       # Variables entorno Supabase
+```
 
-Cuenta en Supabase
+## ⚙️ Configuración
 
-1. Configuración de la Base de Datos
-Ejecuta este SQL en el editor de SQL de Supabase:
+### 🔧 Variables de Entorno (.env)
+En el archivo .env reemplazar las credenciales por las generadas al crear una base de datos PostgreSQL de Supabase.
+
+## 🐳 Ejecución con Docker
+
+```
+docker build -t flyweight .
+docker run --env-file .env -p 8080:8080 flyweight
+```
+
+## 🎮 Uso
+
+## 🔐 Flujo de Ejecución
